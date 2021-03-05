@@ -84,8 +84,8 @@ def label_to_color_image(label):
 download_path = 'deeplabv3_mnv2_pascal_train_aug_2018_01_29.tar.gz'
 MODEL = DeepLabModel(download_path)
 print('model loaded successfully!')
-img_path = 'shoe.png'
-original_im = Image.open(img_path)
+in_name = 'people.png'
+original_im = Image.open('inputs/'+in_name)
 resized_im, seg_map = MODEL.run(original_im)
 
 seg_image = label_to_color_image(seg_map).astype(np.uint8)
@@ -97,7 +97,9 @@ gray = cv2.cvtColor(seg, cv2.COLOR_BGR2GRAY)
 ret, mask = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)
 
 ori[mask == 0] = (255, 255, 255)
-cv2.imshow('output', ori)
+out_name=in_name[0:-4]+'_output.png'
+cv2.imwrite('outputs/'+out_name,ori)
+cv2.imshow(out_name, ori)
 cv2.waitKey(0)
 
 
