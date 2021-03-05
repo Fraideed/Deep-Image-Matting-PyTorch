@@ -5,7 +5,6 @@ from PIL import Image
 import tensorflow as tf
 import cv2
 
-
 class DeepLabModel(object):
     """Class to load deeplab model and run inference."""
     INPUT_TENSOR_NAME = 'ImageTensor:0'
