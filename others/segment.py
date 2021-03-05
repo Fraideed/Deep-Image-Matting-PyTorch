@@ -169,12 +169,12 @@ _TARBALL_NAME = 'deeplab_model.tar.gz'
 model_dir = tempfile.mkdtemp()
 tf.io.gfile.makedirs(model_dir)
 
-download_path = os.path.join(model_dir, _TARBALL_NAME)
-print('downloading model, this might take a while...')
-urllib.request.urlretrieve(_DOWNLOAD_URL_PREFIX + _MODEL_URLS[MODEL_NAME],
-                   download_path)
-print('download completed! loading DeepLab model...')
-
+# download_path = os.path.join(model_dir, _TARBALL_NAME)
+# print('downloading model, this might take a while...')
+# urllib.request.urlretrieve(_DOWNLOAD_URL_PREFIX + _MODEL_URLS[MODEL_NAME],
+#                    download_path)
+# print('download completed! loading DeepLab model...')
+download_path='deeplabv3_mnv2_pascal_train_aug_2018_01_29.tar.gz'
 MODEL = DeepLabModel(download_path)
 print('model loaded successfully!')
 
